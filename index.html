@@ -106,7 +106,7 @@ footer{padding:40px 5vw;border-top:1px solid var(--line);color:var(--mut);font-s
 <div id="glow"></div>
 <nav>
   <div class="brand"><img src="img/logo.svg" alt="Watts Engineering" style="height:38px;display:block"></div>
-  <div class="links"><a href="#services">Services</a><a href="#work">Our Work</a><a href="#contact">Contact</a></div>
+  <div class="links"><a href="#services">Services</a><a href="#work">Our Work</a><a href="#company">Company</a><a href="#careers">Careers</a><a href="#contact">Contact</a></div>
   <a class="btn mag" href="#contact" style="padding:10px 20px">Get a Quote</a>
 </nav>
 
@@ -154,6 +154,43 @@ footer{padding:40px 5vw;border-top:1px solid var(--line);color:var(--mut);font-s
   <div class="work-grid" id="workGrid"></div>
 </section>
 
+<section id="company" style="padding-top:20px">
+  <div class="sec-k reveal">BID-READY</div>
+  <h2 class="sec reveal">Capability, on one page.</h2>
+  <p class="sec-sub reveal">NIPDEC-registered contractor. For procurement officers and corporate clients: who we are, what we deliver, who trusts us.</p>
+  <div class="grid">
+    <div class="card tilt reveal"><div class="num">★</div><div class="ico">🏢</div><h3>Who We Are</h3><p>Civil, building &amp; specialist finishes contractor. 20+ years, 100+ projects, zero cost overruns. #106 Tumpuna Road, Guanapo.</p></div>
+    <div class="card tilt reveal"><div class="num">✓</div><div class="ico">🧰</div><h3>What We Deliver</h3><p>New construction, renovations, interiors, pools, tiling, roads &amp; infrastructure — foundation to finish, managed without delays.</p></div>
+    <div class="card tilt reveal"><div class="num">🤝</div><div class="ico">🏛️</div><h3>Who Trusts Us</h3><p>Guardian Group, Dwelz Limited, Design Works, AID Consulting — plus 100+ homeowners across Trinidad &amp; Tobago.</p></div>
+  </div>
+  <br>
+  <div class="band reveal" style="background:linear-gradient(120deg,#2a1214,#4a1a1c)">
+    <div><div class="sec-k" style="color:var(--amber2)">OUR STORY</div>
+      <h2>Built on details.</h2>
+      <p style="color:#e8c9c7">For 20+ years, Watts Engineering has built homes, offices, pools and roads across Trinidad &amp; Tobago — founded by John Watts on one rule: the details ARE the job.</p></div>
+    <div class="layer" data-depth="0.2" style="position:relative;width:120px;height:120px;background:linear-gradient(135deg,var(--amber),#7c1f1c);border-radius:22px;display:flex;align-items:center;justify-content:center;font-family:Archivo;font-weight:900;font-size:44px;box-shadow:0 20px 60px rgba(0,0,0,.4)">W</div>
+  </div>
+</section>
+
+<section id="process" style="padding-top:20px">
+  <div class="sec-k reveal">HOW WE WORK</div>
+  <h2 class="sec reveal">Quote in 24 hours.</h2>
+  <p class="sec-sub reveal">Site visit today, detailed quotation tomorrow. Valid 30 days. 50/40/10 stage payments. No surprises, ever.</p>
+  <div class="grid">
+    <div class="card tilt reveal"><div class="num">1</div><div class="ico">📞</div><h3>You Call</h3><p>WhatsApp or call. We visit, measure, listen. Same-week site visits.</p></div>
+    <div class="card tilt reveal"><div class="num">2</div><div class="ico">📝</div><h3>We Quote</h3><p>Itemised quotation in 24 hours. Materials + labour, timeline included.</p></div>
+    <div class="card tilt reveal"><div class="num">3</div><div class="ico">🔑</div><h3>You Move In</h3><p>Managed delivery, progress photos throughout, handover on schedule.</p></div>
+  </div>
+</section>
+
+<section id="careers" style="padding-top:20px">
+  <div class="marquee" style="margin:0 -5vw 44px"><span class="track mq2"></span></div>
+  <div class="sec-k reveal">JOIN THE CREW</div>
+  <h2 class="sec reveal">Good hands wanted.</h2>
+  <p class="sec-sub reveal">Masons, tilers, steel fixers, drivers, foremen — steady work, pay on time, every time. WhatsApp us your name, trade, and 2 photos of your work.</p>
+  <div class="cta-row reveal"><a class="btn mag" href="https://wa.me/18686157672?text=Hi%2C%20I%27d%20like%20to%20apply%20for%20work%20at%20Watts%20Engineering.">Apply on WhatsApp</a></div>
+</section>
+
 <section id="contact" style="padding-top:20px">
   <div class="sec-k reveal">GET IT BUILT</div>
   <h2 class="sec reveal">Work with Watts.</h2>
@@ -194,6 +231,9 @@ WORKS.forEach(w=>{
 const MQ=["FOUNDATION TO FINISH","ZERO COST OVERRUNS","20+ YEARS","100+ PROJECTS","NIPDEC-REGISTERED","TRINIDAD & TOBAGO"];
 const seq=MQ.map(s=>s+" &nbsp;<b>●</b>&nbsp; ").join("");
 document.getElementById('mq').innerHTML=seq+seq;
+const MQ2=["SAFETY FIRST","PPE ON EVERY SITE","TOOLBOX TALKS DAILY","STOP-WORK AUTHORITY","ZERO COMPROMISES"];
+const seq2=MQ2.map(s=>s+" &nbsp;<b>●</b>&nbsp; ").join("");
+document.querySelectorAll('.mq2').forEach(el=>el.innerHTML=seq2+seq2);
 /* gravity dot field (antigravity feel) */
 const cv=document.getElementById('dots'),cx2=cv.getContext('2d');
 let DW,DH,pts=[];
