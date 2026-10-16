@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watts Engineering Limited — Building Excellence, Every Time</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#121013; --char:#1a1618; --amber:#d94540; --amber2:#f0665e;
+  --paper:#f4f1ea; --mut:#9aa0aa; --line:rgba(255,255,255,.09);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:#eef0f3;font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3,.disp{font-family:Archivo,Inter,sans-serif}
+/* cursor glow */
+#glow{position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:1;
+  background:radial-gradient(circle,rgba(217,69,64,.14),transparent 60%);
+  transform:translate(-50%,-50%);left:50%;top:30%}
+/* nav */
+nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;justify-content:space-between;align-items:center;
+  padding:18px 5vw;background:rgba(16,18,22,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{font-weight:900;letter-spacing:.06em;font-size:18px}
+.brand b{color:var(--amber)}
+nav .links{display:flex;gap:26px;font-size:13.5px;font-weight:600}
+nav .links a{color:#cfd3d9;text-decoration:none;transition:color .2s}
+nav .links a:hover{color:var(--amber)}
+.btn{display:inline-block;background:var(--amber);color:#141414;font-weight:800;font-size:14px;
+  padding:13px 26px;border-radius:999px;text-decoration:none;transition:transform .15s ease-out,box-shadow .2s;
+  box-shadow:0 8px 28px rgba(217,69,64,.25);will-change:transform}
+.btn:hover{box-shadow:0 12px 36px rgba(217,69,64,.45)}
+.btn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35);box-shadow:none}
+/* hero */
+header{min-height:100vh;display:flex;align-items:center;position:relative;padding:120px 5vw 60px;overflow:hidden}
+#stripes{position:absolute;inset:-10%;z-index:0;opacity:.5;pointer-events:none;
+  background:
+    repeating-linear-gradient(-45deg,transparent 0 90px,rgba(217,69,64,.05) 90px 130px);}
+#dots{position:absolute;inset:0;z-index:1;pointer-events:none}
+.layer{position:absolute;border-radius:18px;pointer-events:none}
+#L1{width:44vw;height:60vh;right:-6vw;top:16vh;z-index:0;
+  background:linear-gradient(135deg,#2a2224,#121013 60%),repeating-linear-gradient(-45deg,transparent 0 26px,rgba(217,69,64,.14) 26px 40px);
+  box-shadow:0 40px 120px rgba(0,0,0,.5)}
+#L2{width:20vw;height:26vh;right:22vw;bottom:8vh;z-index:0;overflow:hidden;
+  background:linear-gradient(135deg,#e8574f,#a02a25);
+  display:flex;align-items:center;justify-content:center;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+#L2 span{font-family:Archivo;font-weight:900;font-size:clamp(18px,2vw,32px);color:#fff;text-align:center;line-height:1.1;padding:0 14px;word-break:break-word}
+.hero-copy{position:relative;z-index:2;max-width:640px}
+.kicker{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.28em;color:var(--amber);margin-bottom:18px}
+h1{font-size:clamp(44px,7vw,96px);font-weight:900;line-height:.98;letter-spacing:-.02em}
+h1 em{font-style:normal;color:transparent;-webkit-text-stroke:2px var(--amber)}
+.sub{margin:22px 0 34px;color:var(--mut);font-size:17px;line-height:1.65;max-width:52ch}
+.cta-row{display:flex;gap:16px;flex-wrap:wrap}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:38px 5vw;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat .n{font-family:Archivo;font-weight:900;font-size:clamp(38px,4.5vw,58px);color:var(--amber)}
+.stat .l{color:var(--mut);font-size:13px;letter-spacing:.14em;font-weight:600;margin-top:6px}
+/* sections */
+section{padding:96px 5vw;position:relative;z-index:2}
+.sec-k{font-size:12px;font-weight:800;letter-spacing:.28em;color:var(--amber)}
+h2.sec{font-size:clamp(32px,4.5vw,54px);font-weight:900;margin:14px 0 12px;letter-spacing:-.01em}
+.sec-sub{color:var(--mut);max-width:62ch;line-height:1.7;margin-bottom:44px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:var(--char);border:1px solid var(--line);border-radius:16px;padding:30px 26px;
+  transition:transform .18s ease-out,border-color .2s;will-change:transform;position:relative;overflow:hidden}
+.card:hover{border-color:rgba(217,69,64,.55)}
+.card .ico{font-size:30px}
+.card h3{font-size:19px;margin:16px 0 10px}
+.card p{color:var(--mut);font-size:14.5px;line-height:1.65}
+.card .num{position:absolute;top:14px;right:18px;font-family:Archivo;font-weight:900;font-size:44px;color:rgba(255,255,255,.06)}
+/* work */
+.work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.work{border-radius:16px;overflow:hidden;position:relative;min-height:260px;display:flex;align-items:flex-end;
+  border:1px solid var(--line);transition:transform .18s ease-out;will-change:transform;text-decoration:none;color:#fff;background:#1a1e24}
+.work .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.work .cap{position:relative;z-index:2;padding:22px;background:linear-gradient(transparent,rgba(0,0,0,.82));width:100%}
+.work .cap b{font-family:Archivo;font-size:20px}
+.work .cap small{color:var(--amber2);font-weight:700;letter-spacing:.12em;font-size:11px}
+/* guyana band */
+.band{background:linear-gradient(120deg,#0d3b2e,#10634f);border-radius:22px;padding:56px 5vw;display:flex;
+  justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;border:1px solid rgba(255,255,255,.12)}
+.band h2{font-size:clamp(28px,3.6vw,44px);font-weight:900}
+.band p{color:#cfe3da;margin-top:10px;max-width:52ch;line-height:1.65}
+/* marquee */
+.marquee{overflow:hidden;white-space:nowrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:16px 0;background:#0c0a0b;position:relative;z-index:2}
+.marquee .track{display:inline-block;animation:mq 26s linear infinite;font-family:Archivo;font-weight:900;
+  font-size:20px;letter-spacing:.14em;color:transparent;-webkit-text-stroke:1px rgba(217,69,64,.85)}
+.marquee .track b{color:var(--amber);-webkit-text-stroke:0}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+@media(max-width:820px){.contact-grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid var(--line)}nav .links{display:none}}
+.c-card{background:var(--char);border:1px solid var(--line);border-radius:16px;padding:34px}
+.c-card a.big{font-family:Archivo;font-weight:800;font-size:clamp(20px,2.6vw,30px);color:#fff;text-decoration:none}
+.c-card a.big:hover{color:var(--amber)}
+footer{padding:40px 5vw;border-top:1px solid var(--line);color:var(--mut);font-size:13px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;position:relative;z-index:2}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div id="glow"></div>
+<nav>
+  <div class="brand"><img src="img/logo.svg" alt="Watts Engineering" style="height:38px;display:block"></div>
+  <div class="links"><a href="#services">Services</a><a href="#work">Our Work</a><a href="#contact">Contact</a></div>
+  <a class="btn mag" href="#contact" style="padding:10px 20px">Get a Quote</a>
+</nav>
+
+<header id="top">
+  <div id="stripes"></div>
+  <canvas id="dots"></canvas>
+  <div class="layer" id="L1" data-depth="0.14"></div>
+  <div class="layer" id="L2" data-depth="0.26"><span>FOUNDATION<br>TO FINISH</span></div>
+  <div class="hero-copy">
+    <span class="kicker">TRINIDAD · 20+ YEARS · NIPDEC-REGISTERED</span>
+    <h1>Building <em>excellence,</em> every time.</h1>
+    <p class="sub">Residential and commercial construction, renovation, architectural design and project
+    management — 100+ projects delivered with zero cost overruns. Perfectionists, unapologetically obsessed with the details.</p>
+    <div class="cta-row">
+      <a class="btn mag" href="#contact">Start Your Project</a>
+      <a class="btn ghost mag" href="#work">See Our Work</a>
+    </div>
+  </div>
+</header>
+
+<div class="marquee"><span class="track" id="mq"></span></div>
+
+<div class="stats">
+  <div class="stat reveal"><div class="n"><span class="count" data-to="20">0</span>+</div><div class="l">YEARS OF EXPERIENCE</div></div>
+  <div class="stat reveal"><div class="n"><span class="count" data-to="100">0</span>+</div><div class="l">PROJECTS COMPLETED</div></div>
+  <div class="stat reveal"><div class="n"><span class="count" data-to="0">0</span></div><div class="l">COST OVERRUNS</div></div>
+</div>
+
+<section id="services">
+  <div class="sec-k reveal">WHAT WE DO</div>
+  <h2 class="sec reveal">Four crafts. One standard.</h2>
+  <p class="sec-sub reveal">End-to-end delivery: foundation to finish, managed without time delays or cost overruns.</p>
+  <div class="grid">
+    <div class="card tilt reveal"><div class="num">01</div><div class="ico">🏗️</div><h3>Construction</h3><p>Building or renovating residential and commercial properties of any size — foundation to finish.</p></div>
+    <div class="card tilt reveal"><div class="num">02</div><div class="ico">✨</div><h3>Interior Finishes</h3><p>High-quality finishes with obsessive attention to detail. Clients get exactly what they want.</p></div>
+    <div class="card tilt reveal"><div class="num">03</div><div class="ico">📐</div><h3>Architectural Design</h3><p>Contemporary residential and commercial design, fluent in regulatory best practice.</p></div>
+    <div class="card tilt reveal"><div class="num">04</div><div class="ico">📋</div><h3>Project Management</h3><p>Risks mitigated, nothing overlooked at any stage. No delays, no overruns.</p></div>
+  </div>
+</section>
+
+<section id="work" style="padding-top:20px">
+  <div class="sec-k reveal">PROOF, NOT PROMISES</div>
+  <h2 class="sec reveal">Our work speaks.</h2>
+  <p class="sec-sub reveal">A sample of recent deliveries across Trinidad &amp; Tobago.</p>
+  <div class="work-grid" id="workGrid"></div>
+</section>
+
+<section id="contact" style="padding-top:20px">
+  <div class="sec-k reveal">GET IT BUILT</div>
+  <h2 class="sec reveal">Work with Watts.</h2>
+  <p class="sec-sub reveal">Call, WhatsApp, or email — a real person answers.</p>
+  <div class="contact-grid">
+    <div class="c-card reveal"><div class="sec-k">CALL / WHATSAPP</div><br>
+      <a class="big" href="tel:+18686157672">+1 (868) 615-7672</a><br><br>
+      <a class="big" href="tel:+18683555432">+1 (868) 355-5432</a></div>
+    <div class="c-card reveal"><div class="sec-k">VISIT / EMAIL</div><br>
+      <p style="line-height:1.8">#106 Tumpuna Road, Guanapo<br>La Horquetta 370513, Trinidad &amp; Tobago<br>
+      <a class="big" style="font-size:20px" href="mailto:info@wattsengineeringltd.com">info@wattsengineeringltd.com</a><br>
+      <span style="color:var(--mut);font-size:13px">Mon–Fri · 07:30–16:30</span></p></div>
+  </div>
+</section>
+
+<footer><span>© 2026 Watts Engineering Ltd</span><span>NIPDEC-registered · Trinidad & Tobago · <a href="https://www.facebook.com/p/Watts-Engineering-Limited-100054514177194/" target="_blank" rel="noopener" style="color:var(--amber)">Facebook</a></span></footer>
+<a id="wa" href="https://wa.me/18686157672?text=Hi%20Watts%20Engineering%2C%20I%27d%20like%20a%20quote%20for%20my%20project." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">✆</a>
+<style>#wa{position:fixed;bottom:18px;left:18px;z-index:99;width:58px;height:58px;border-radius:50%;
+  background:#25d366;color:#fff;font-size:30px;display:flex;align-items:center;justify-content:center;
+  text-decoration:none;box-shadow:0 10px 30px rgba(37,211,102,.45);transition:transform .15s}
+  #wa:hover{transform:scale(1.1)}</style>
+
+<script>
+const WORKS=[
+ ["New Construction","FOUNDATION TO FINISH","img/new-construction.jpg"],
+ ["Residential Renovations","HIGH-END INTERIORS","img/residential-renovations.jpg"],
+ ["Commercial Renovations","OFFICE FIT-OUTS","img/commercial-renovations.jpg"],
+ ["Pools","BACKYARD RESORTS","img/pools.jpg"],
+ ["Tiling","DETAIL OBSESSED","img/tiling.jpg"],
+ ["Infrastructure Works","GROUNDWORK THAT HOLDS","img/infrastructure.png"]];
+const wg=document.getElementById('workGrid');
+WORKS.forEach(w=>{
+  const a=document.createElement('a');a.className='work tilt reveal';a.href='#contact';
+  a.innerHTML=`<img class="ph" src="${w[2]}" alt="${w[0]} — Watts Engineering" loading="lazy" onerror="this.style.display='none'"><div class="cap"><small>${w[1]}</small><br><b>${w[0]}</b></div>`;
+  wg.appendChild(a);
+});
+/* marquee */
+const MQ=["FOUNDATION TO FINISH","ZERO COST OVERRUNS","20+ YEARS","100+ PROJECTS","NIPDEC-REGISTERED","TRINIDAD & TOBAGO"];
+const seq=MQ.map(s=>s+" &nbsp;<b>●</b>&nbsp; ").join("");
+document.getElementById('mq').innerHTML=seq+seq;
+/* gravity dot field (antigravity feel) */
+const cv=document.getElementById('dots'),cx2=cv.getContext('2d');
+let DW,DH,pts=[];
+function seedDots(){const r=cv.parentElement.getBoundingClientRect();DW=cv.width=r.width;DH=cv.height=r.height;pts=[];
+  const n=Math.min(170,Math.floor(DW*DH/14000));
+  for(let i=0;i<n;i++){const red=Math.random()<.45;
+    pts.push({x:Math.random()*DW,y:Math.random()*DH,r:Math.random()*2.2+.8,
+      vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,
+      c:red?'217,69,64':(Math.random()<.5?'255,255,255':'240,200,160'),a:Math.random()*.5+.25,
+      ox:0,oy:0});}}
+seedDots();addEventListener('resize',seedDots);
+let mx=-9999,my=-9999;
+document.querySelector('header').addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;});
+document.querySelector('header').addEventListener('mouseleave',()=>{mx=my=-9999});
+(function dots(){
+  cx2.clearRect(0,0,DW,DH);
+  for(const p of pts){
+    p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0||p.x>DW)p.vx*=-1;if(p.y<0||p.y>DH)p.vy*=-1;
+    const dx=p.x-mx,dy=p.y-my,d=Math.hypot(dx,dy),R=150;
+    let tx=0,ty=0;
+    if(d<R&&d>1){const f=(1-d/R)*26;tx=dx/d*f;ty=dy/d*f;} /* gravity push */
+    p.ox+=(tx-p.ox)*.12;p.oy+=(ty-p.oy)*.12;
+    cx2.beginPath();cx2.arc(p.x+p.ox,p.y+p.oy,p.r,0,7);
+    cx2.fillStyle=`rgba(${p.c},${p.a})`;cx2.fill();
+  }
+  requestAnimationFrame(dots);
+})();
+/* mouse: glow follows */
+const stripeEl=document.getElementById('stripes');
+const glow=document.getElementById('glow');
+let gx=innerWidth/2,gy=innerHeight*0.3,tx=gx,ty=gy;
+addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY;
+  /* hero parallax — BIG and obvious */
+  const cx=(e.clientX/innerWidth-.5),cy=(e.clientY/innerHeight-.5);
+  document.querySelectorAll('[data-depth]').forEach(el=>{
+    const d=parseFloat(el.dataset.depth);
+    el.style.translate=`${-cx*d*900}px ${-cy*d*700}px`;
+    el.style.rotate=`${cx*d*22}deg`;
+  });
+  stripeEl.style.backgroundPosition=`${cx*120}px ${cy*120}px`;
+});
+(function loop(){gx+=(tx-gx)*.08;gy+=(ty-gy)*.08;glow.style.left=gx+'px';glow.style.top=gy+'px';requestAnimationFrame(loop)})();
+/* magnetic buttons */
+document.querySelectorAll('.mag').forEach(b=>{
+  b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();
+    b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.25}px,${(e.clientY-r.top-r.height/2)*.35}px)`});
+  b.addEventListener('mouseleave',()=>b.style.transform='');
+});
+/* tilt cards */
+document.querySelectorAll('.tilt').forEach(c=>{
+  c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    c.style.transform=`perspective(800px) rotateY(${x*10}deg) rotateX(${-y*10}deg) translateY(-4px)`});
+  c.addEventListener('mouseleave',()=>c.style.transform='');
+});
+/* counters + reveals */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const cio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;cio.unobserve(e.target);
+  const to=+e.target.dataset.to,t0=performance.now();
+  (function tick(t){const p=Math.min((t-t0)/1400,1);e.target.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick)})(t0);
+}),{threshold:.4});
+document.querySelectorAll('.count').forEach(el=>cio.observe(el));
+</script>
+</body>
+</html>
